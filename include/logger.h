@@ -12,14 +12,14 @@ typedef enum {
 extern "C" {
 #endif
 
-void    kkt_log_init(ocnet_loglevel_t level);
-int     kkt_log_write(ocnet_loglevel_t level, char *tags,
+void    ocnet_log_init(ocnet_loglevel_t level);
+int     ocnet_log_write(ocnet_loglevel_t level, char *tags,
             char *function, int line, char *fmt, ...);
-void    kkt_log_final(void);
+void    ocnet_log_final(void);
 
 #define LOG(level, tag, fmt, ...) \
     do {    \
-        kkt_log_write(level, tag, (char *)__FUNCTION__, \
+        ocnet_log_write(level, tag, (char *)__FUNCTION__, \
                 __LINE__, fmt, ##__VA_ARGS__); \
     } while (0)
 
